@@ -14,9 +14,9 @@ Material:
   m_ValidKeywords:
   - _EMISSIVE_SIMPLE
   - _IS_ANGELRING_OFF
-  - _IS_TRANSCLIPPING_OFF
+  - _IS_CLIPPING_OFF
+  - _IS_OUTLINE_CLIPPING_NO
   - _OUTLINE_NML
-  - _SHADINGGRADEMAP
   m_InvalidKeywords:
   - _
   - _INVERSE_Z_AXIS_BLD_ON
@@ -235,7 +235,7 @@ Material:
     m_Floats:
     - _1st2nd_Shades_Feather: 0.0001
     - _1st_ShadeColor_Feather: 0.095
-    - _1st_ShadeColor_Step: 0.336
+    - _1st_ShadeColor_Step: 0.63
     - _2nd_ShadeColor_Feather: 0.0001
     - _2nd_ShadeColor_Step: 0
     - _AORemapMax: 1
@@ -265,7 +265,7 @@ Material:
     - _AutoRenderQueue: 1
     - _BaseColorOverridden: 0
     - _BaseColorVisible: 1
-    - _BaseColor_Step: 0.336
+    - _BaseColor_Step: 0.63
     - _BaseShade_Feather: 0.095
     - _Base_Speed: 0
     - _BlendMode: 0
@@ -392,7 +392,7 @@ Material:
     - _Offset_Z: 0
     - _OutlineOverridden: 0
     - _OutlineVisible: 1
-    - _Outline_Width: 0.87
+    - _Outline_Width: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
@@ -447,6 +447,9 @@ Material:
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
+    - _TessEdgeLength: 5
+    - _TessExtrusionAmount: 0
+    - _TessPhongStrength: 0.5
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
@@ -489,7 +492,7 @@ Material:
     - _ZWriteMode: 1
     - _isUnityToonshader: 1
     - _simpleUI: 0
-    - _utsTechnique: 1
+    - _utsTechnique: 0
     - _utsVersion: 2.09
     - _utsVersionX: 2
     - _utsVersionY: 5

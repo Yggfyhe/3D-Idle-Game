@@ -34,8 +34,10 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    IgnoreProjection: False
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -233,7 +235,7 @@ Material:
     m_Floats:
     - _1st2nd_Shades_Feather: 0.0001
     - _1st_ShadeColor_Feather: 0.095
-    - _1st_ShadeColor_Step: 0.336
+    - _1st_ShadeColor_Step: 0.63
     - _2nd_ShadeColor_Feather: 0.0001
     - _2nd_ShadeColor_Step: 0
     - _AORemapMax: 1
@@ -263,7 +265,7 @@ Material:
     - _AutoRenderQueue: 1
     - _BaseColorOverridden: 0
     - _BaseColorVisible: 1
-    - _BaseColor_Step: 0.336
+    - _BaseColor_Step: 0.63
     - _BaseShade_Feather: 0.095
     - _Base_Speed: 0
     - _BlendMode: 0
@@ -390,7 +392,7 @@ Material:
     - _Offset_Z: 0
     - _OutlineOverridden: 0
     - _OutlineVisible: 1
-    - _Outline_Width: 0.87
+    - _Outline_Width: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
@@ -489,9 +491,9 @@ Material:
     - _simpleUI: 0
     - _utsTechnique: 1
     - _utsVersion: 2.09
-    - _utsVersionX: 0
-    - _utsVersionY: 8
-    - _utsVersionZ: 3
+    - _utsVersionX: 2
+    - _utsVersionY: 5
+    - _utsVersionZ: 1
     m_Colors:
     - _1st_ShadeColor: {r: 0.89705884, g: 0.70577425, b: 0.70577425, a: 1}
     - _2nd_ShadeColor: {r: 1, g: 1, b: 1, a: 1}

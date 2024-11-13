@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TitleCanvasUI : MonoBehaviour
 {
+
     public CanvasGroup canvasGroup;
     private float fadeDuration = 1f;
 

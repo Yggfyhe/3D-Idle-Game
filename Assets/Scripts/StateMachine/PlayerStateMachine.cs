@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStateMachine : StateMachine
@@ -13,9 +14,12 @@ public class PlayerStateMachine : StateMachine
 
     public Transform MainCamTransform { get; set; }
 
-    public PlayerIdleState IdleState { get; private set; }
-    public PlayerWalkState WalkState { get; private set; }
-    public PlayerRunState RunState { get; private set; }
+    public PlayerIdleState IdleState { get;}
+    public PlayerWalkState WalkState { get;}
+    public PlayerRunState RunState { get; }
+    public PlayerJumpState JumpState { get; }
+
+    public PlayerFallState FallState { get; }
     public PlayerStateMachine(Player player)
     {
         this.Player = player;
@@ -24,19 +28,11 @@ public class PlayerStateMachine : StateMachine
         IdleState= new PlayerIdleState(this);
         WalkState = new PlayerWalkState(this);
         RunState = new PlayerRunState(this);
+        JumpState = new PlayerJumpState(this);
+        FallState = new PlayerFallState(this);
 
         MovementSpeed = player.Data.GroundData.BaseSpeed;
         RotationDamping = player.Data.GroundData.BaseRotationDamping;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

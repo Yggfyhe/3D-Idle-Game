@@ -78,7 +78,8 @@ public class IntroSceneEvent : MonoBehaviour
 
         if (footstepParticlePrefab != null && footPosition != null)
         {
-            Instantiate(footstepParticlePrefab, footPosition.position, Quaternion.identity);
+            GameObject particleInstance = Instantiate(footstepParticlePrefab, footPosition.position, Quaternion.identity);
+            Destroy(particleInstance, 2f);
         }
     }
 }

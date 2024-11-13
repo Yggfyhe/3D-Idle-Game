@@ -1,7 +1,10 @@
 using UnityEngine;
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine.InputSystem;
+using System.Collections;
+using KoreanTyper;
+using UnityEngine.UI;
+
 
 public class DialogueManager : GenericSingleton<DialogueManager>
 {
@@ -9,6 +12,7 @@ public class DialogueManager : GenericSingleton<DialogueManager>
     public GameObject talkPanel;
     public TextMeshProUGUI characterNameTxt;
     public TextMeshProUGUI talkText;
+    //public Text[] TestTexts;
 
     [Header("튜토리얼 장면")]
     public DialogueData tutorialDialogue;
@@ -17,6 +21,7 @@ public class DialogueManager : GenericSingleton<DialogueManager>
     private InputAction leftClickAction;
     private DialogueData currentDialogue; // 현재 대화 데이터
     private int dialogueIndex = 0;        // 현재 대화 인덱스
+    private Coroutine typingCoroutine;
 
     private void OnEnable()
     {
@@ -56,7 +61,11 @@ public class DialogueManager : GenericSingleton<DialogueManager>
 
         // 현재 대화 내용을 talkText에 표시
         characterNameTxt.text = currentDialogue.characterName;
-        talkText.text = currentDialogue.dialogueLines[dialogueIndex];
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+        typingCoroutine = StartCoroutine(TypingText());
         dialogueIndex++;
     }
 
@@ -74,6 +83,41 @@ public class DialogueManager : GenericSingleton<DialogueManager>
         dialogueIndex = 0;
     }
 
+    public IEnumerator TypingText()
+    {
+        talkText.text = "";
+
+        string currentLine = currentDialogue.dialogueLines[dialogueIndex];
+        int strTypingLength = currentLine.GetTypingLength();
+
+        for (int i = 0; i <= strTypingLength; i++)
+        {
+            talkText.text = currentLine.Typing(i);
+            yield return new WaitForSeconds(0.03f); // 타이핑 속도 조절
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        //while (true)
+        //{
+        //    string[] strings = new string[1] {currentDialogue.dialogueLines[dialogueIndex]};
+        //    foreach (Text t in TestTexts)
+        //        t.text = "";
+
+        //    for (int t = 0; t < TestTexts.Length && t < strings.Length; t++)
+        //    {
+        //        int strTypingLength = strings[t].GetTypingLength();
+
+        //        for (int i = 0; i <= strTypingLength; i++)
+        //        {
+        //            TestTexts[t].text = strings[t].Typing(i);
+        //            yield return new WaitForSeconds(0.03f);
+        //        }
+        //        yield return new WaitForSeconds(1f);
+        //    }
+        //    yield return new WaitForSeconds(1f);
+        //}
+    }
 }
 
 

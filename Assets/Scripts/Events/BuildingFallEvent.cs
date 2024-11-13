@@ -16,7 +16,8 @@ public class BuildingFallEvent : MonoBehaviour
     {
         if (ParticlePrefab != null && collision.gameObject.CompareTag("Ground"))
         {
-            Instantiate(ParticlePrefab, transform.position, Quaternion.identity);
+            GameObject particleInstance = Instantiate(ParticlePrefab, transform.position, Quaternion.identity);
+            Destroy(particleInstance, 2f);
         }
 
     }

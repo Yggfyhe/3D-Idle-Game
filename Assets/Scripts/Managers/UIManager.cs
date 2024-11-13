@@ -4,14 +4,14 @@ using TMPro;
 public class UIManager : GenericSingleton<UIManager>
 {
     [Header("플레이어 스탯")]
-    public TextMeshProUGUI cleanlinessText; 
+    //public TextMeshProUGUI cleanlinessText; 
 
     [Header("통화")]
     public TextMeshProUGUI currencyText;   
 
     [Header("메뉴")]
-    public GameObject mainMenu;
-    public GameObject optionsMenu;
+    public GameObject buildMenu;
+    public GameObject shopMenu;
 
     
 
@@ -25,26 +25,22 @@ public class UIManager : GenericSingleton<UIManager>
     // 청결도를 업데이트
     public void UpdateCleanliness(int cleanliness)
     {
-        cleanlinessText.text = $"Cleanliness: {cleanliness}";
     }
 
     // 돈 업데이트
     public void UpdateCurrency(int currencyAmount)
     {
-        currencyText.text = $"Currency: {currencyAmount}";
+        currencyText.text = $"{currencyAmount}골드";
     }
 
-    // 메인 메뉴 활성화/비활성화
-    public void ToggleMainMenu(bool isActive)
+    public void ToggleBuildMenu(bool isActive)
     {
-        mainMenu.SetActive(isActive);
+        buildMenu.SetActive(isActive);
     }
 
-    // 옵션 메뉴 활성화/비활성화
-    public void ToggleOptionsMenu(bool isActive)
+    public void ToggleShopMenu(bool isActive)
     {
-        optionsMenu.SetActive(isActive);
+        shopMenu.SetActive(isActive);
     }
 
-    // 알림 또는 팝업 창 관리도 이곳에서 추가 가능
 }

@@ -20,5 +20,6 @@ public class BuildingFallEvent : MonoBehaviour
             Destroy(particleInstance, 2f);
         }
 
+
     }
 }

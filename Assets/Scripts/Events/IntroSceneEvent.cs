@@ -1,4 +1,5 @@
 using Cinemachine;
+using System.Collections;
 using UnityEngine;
 
 public class IntroSceneEvent : MonoBehaviour
@@ -20,7 +21,7 @@ public class IntroSceneEvent : MonoBehaviour
     private static readonly int runningLoopHash = Animator.StringToHash("Base Layer.Running@loop");
 
     private bool isMoving = false;
-    private bool footstep = true;     
+    private bool footstep = true;
 
     private void Start()
     {
@@ -65,6 +66,8 @@ public class IntroSceneEvent : MonoBehaviour
         Instantiate(buildingPrefab, spawnPosition, spawnRotation);
 
         mainCamera.Priority = 0;
+
+        EventManager.Instance.ShowCanvas();
     }
 
     public void OnCallChangeFace()
@@ -82,4 +85,6 @@ public class IntroSceneEvent : MonoBehaviour
             Destroy(particleInstance, 2f);
         }
     }
+
+    
 }

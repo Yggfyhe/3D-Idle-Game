@@ -5,8 +5,6 @@ using UnityEngine;
 public class IntroSceneEvent : MonoBehaviour
 {
     public float runSpeed = 5f;
-
-    public GameObject buildingPrefab;
     public CinemachineVirtualCamera mainCamera;
 
     [Header("발걸음 파티클")]
@@ -60,10 +58,7 @@ public class IntroSceneEvent : MonoBehaviour
     {
         gameObject.SetActive(false);
 
-        //건물소환
-        Vector3 spawnPosition = new Vector3(-3.14f, 10f, -1.16f);
-        Quaternion spawnRotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + 240f, 0);
-        Instantiate(buildingPrefab, spawnPosition, spawnRotation);
+        EventManager.Instance.SummonBuilding();
 
         mainCamera.Priority = 0;
 

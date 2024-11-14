@@ -17,18 +17,18 @@ public class UIManager : GenericSingleton<UIManager>
 
     private void Start()
     {
-        UpdateCleanliness(100); 
-        UpdateCurrency(0);     
+        UpdateCleanlinessUI(100);
+        UpdateCurrencyUI(0);     
     }
 
 
     // 청결도를 업데이트
-    public void UpdateCleanliness(int cleanliness)
+    public void UpdateCleanlinessUI(int cleanliness)
     {
     }
 
     // 돈 업데이트
-    public void UpdateCurrency(int currencyAmount)
+    public void UpdateCurrencyUI(int currencyAmount)
     {
         currencyText.text = $"{currencyAmount}골드";
     }
